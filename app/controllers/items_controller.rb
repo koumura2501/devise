@@ -13,6 +13,11 @@ class ItemsController < ApplicationController
       Item.create(name: item_params[:name], price: item_params[:price], user_id: current_user.id)
   end
 
+  def destroy
+    @item = Item.find(params[:id])
+    @item.destroy
+  end
+
   def move_to_index
     redirect_to action: :index unless user_signed_in?
   end

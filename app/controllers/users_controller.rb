@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
-  def show
-    #@items = Item.where(user_id: current_user.id)
-    @user = User.find(current_user.id)
+
+  def index
+    @users = User.all
   end
+
+  def show
+    @user = User.find(params[:id])
+  end
+
 end
